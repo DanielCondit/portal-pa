@@ -9,19 +9,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //my imports
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { PortalNavComponent } from './portal-nav/portal-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatListModule} from '@angular/material';
 import { Form833Component } from './form833/form833.component';
 import { EquipFormComponent } from './equip-form/equip-form.component';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MyMaterialModule } from './material-module';
+import { PaHomeComponent } from './pa-home/pa-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PortalNavComponent,
     Form833Component,
-    EquipFormComponent
+    EquipFormComponent,
+    PaHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +40,9 @@ import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angul
     MatInputModule,
     MatRippleModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    MyMaterialModule
+    ],
   exports: [
     //My exports
     LayoutModule,

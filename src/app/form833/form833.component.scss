@@ -1,8 +1,19 @@
-.example-container {
-  display: flex;
-  flex-direction: column;
+.form-container{
+	width: 100%;
+	padding: 0;
+  	margin: 0;
+	.form-wrap {
+  		display: flex;
+  		flex-direction: column;
+  		width: 30%;
+  		padding: 0;
+  		margin-left: 35%;
+      z-index: 1;
+      margin-top: 2%;
+	}
 }
 
-.example-container > * {
-  width: 100%;
-}
+
+// .form-container > * {
+//   width: 100%;
+// }

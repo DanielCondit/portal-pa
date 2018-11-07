@@ -1,15 +1,84 @@
-<!-- <div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Input">
-  </mat-form-field>
+<div class="form-container">
+  <div class="form-wrap">
 
-  <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
-  </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div> -->
+    <mat-form-field>
+      <input matInput #input maxlength="20" placeholder="First Name">
+      <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput #input maxlength="20" placeholder="Last Name">
+      <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Grade">
+        <mat-option value="option">E-1</mat-option>
+        <mat-option value="option">E-2</mat-option>
+        <mat-option value="option">E-3</mat-option>
+        <mat-option value="option">E-4</mat-option>
+        <mat-option value="option">E-5</mat-option>
+        <mat-option value="option">E-6</mat-option>
+        <mat-option value="option">E-7</mat-option>
+        <mat-option value="option">E-8</mat-option>
+        <mat-option value="option">W-1</mat-option>
+        <mat-option value="option">w-2</mat-option>
+        <mat-option value="option">W-3</mat-option>
+        <mat-option value="option">W-4</mat-option>
+        <mat-option value="option">W-5</mat-option>
+        <mat-option value="option">O-1</mat-option>
+        <mat-option value="option">O-2</mat-option>
+        <mat-option value="option">O-3</mat-option>
+        <mat-option value="option">O-4</mat-option>
+        <mat-option value="option">O-5</mat-option>
+        <mat-option value="option">O-6</mat-option>
+        <mat-option value="option">O-7</mat-option>
+        <mat-option value="option">O-8</mat-option>
+        <mat-option value="option">O-9</mat-option>
+        <mat-option value="option">O-10</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Phone Number">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="E-mail" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  #input maxlength="20" placeholder="Organization">
+      <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  #input maxlength="20" placeholder="Office Symbol">
+      <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Support">
+        <mat-option value="option">Photo</mat-option>
+        <mat-option value="option">Graphics</mat-option>
+        <mat-option value="option">Video</mat-option>
+        <mat-option value="option">Presentations</mat-option>
+        <mat-option value="option">Studio</mat-option>
+        <mat-option value="option">Other</mat-option>    
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput #input maxlength="200" placeholder="Textarea"></textarea>
+      <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+    </mat-form-field>
+    <button mat-raised-button>Submit</button>
+  </div>
+</div>

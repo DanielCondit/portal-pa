@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form833',
@@ -7,10 +7,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./form833.component.scss']
 })
 export class Form833Component implements OnInit {
+	email = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor() { }
+  	getErrorMessage() {
+    	return this.email.hasError('required') ? 'You must enter a value' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
+  	}
 
-  ngOnInit() {
-  }
-
+  	constructor() {}
+  	ngOnInit() {}
 }
