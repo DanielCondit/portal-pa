@@ -1,28 +1,32 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a routerLink="/PA_Portal" mat-list-item >Home</a>
-      <a routerLink="/Form_833" mat-list-item>Service Request</a>
-      <a routerLink="/Equip_Form" mat-list-item>Equipment Request</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar style="background-color: #5D8AA8">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span style="color: white; font-weight: bold; font-size: 25px">188th Public Affairs Portal</span>
-    </mat-toolbar>
-    <!-- Add Content Here -->
-  </mat-sidenav-content>
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="!(isHandset$ | async)">
+  <mat-toolbar>Menu</mat-toolbar>
+  <mat-nav-list>
+    <a routerLink="/PA_Portal" mat-list-item >Home</a>
+    <a routerLink="/Form_833" mat-list-item>Service Request</a>
+    <a routerLink="/Equip_Form" mat-list-item>Equipment Request</a>
+  </mat-nav-list>
+</mat-sidenav>
+<mat-sidenav-content>
+  <mat-toolbar style="background-color: #5D8AA8">
+    <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()"
+    *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span style="color: white; font-weight: bold; font-size: 25px">188th Public Affairs Portal</span>
+</mat-toolbar>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+  </li>
+</ul>
+</mat-sidenav-content>
 </mat-sidenav-container>
 <router-outlet></router-outlet>

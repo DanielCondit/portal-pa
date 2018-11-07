@@ -16,6 +16,7 @@ import { EquipFormComponent } from './equip-form/equip-form.component';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyMaterialModule } from './material-module';
 import { PaHomeComponent } from './pa-home/pa-home.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { PaHomeComponent } from './pa-home/pa-home.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
