@@ -6,11 +6,24 @@ import { form833 } from '../app.model';
 import { AppService } from '../app.service';
 import { config } from '../app.config';
 import { map } from 'rxjs/operators';
+import { AppModule } from '../app.module';
+import {Router} from '@angular/router';
 
 export interface Form833 {
-  description: string;
+  date: string;
+  desc: string;
+  emails: string;
+  fname: string;
+  grade: string;
+  lname: string;
+  org: string;
+  osymbol: string;
+  phone: number;
+  support: string;
   completed: boolean;
 }
+
+
 
 @Component({
   selector: 'app-form833',
@@ -27,23 +40,10 @@ export class Form833Component implements OnInit {
             '';
   	}
 
-  // formCollectionRef: AngularFirestoreCollection<Form833>;
-  // form$: Observable<Form833[]>;
-
-  // constructor(private afs: AngularFirestore) {
-  //   this.formCollectionRef = this.afs.collection('Form_833');
-  //   this.form$ = this.formCollectionRef.valueChanges();
-  // }
-
-  // add833(formDesc: string) {
-  // if (formDesc && formDesc.trim().length) {
-  //   this.formCollectionRef.add({ description: formDesc, completed: false });
-  //   }
-  // }
-
   constructor(
     private db: AngularFirestore, 
-    private form833Service: AppService
+    private form833Service: AppService,
+    private router: Router
   ) {}
 
   serviceForms: Observable<any[]>;
@@ -58,14 +58,26 @@ export class Form833Component implements OnInit {
        return actions.map(a => {
         //Get document data
         const data = a.payload.doc.data() as form833;
+        //Get document id
+        const id = a.payload.doc.id;
         //Use spread operator to add the lname to the document data
-        return { data };
+        return { id, ...data };
        });
     })
     );  
   }
 
-  myForm: string;
+  // id: string;
+  date: string;
+  desc: string;
+  emails: string;
+  fname: string;
+  grade: string;
+  lname: string;
+  org: string;
+  osymbol: string;
+  phone: number;
+  support: string;
   editMode: boolean = false;
   formToEdit: any = {};
 
@@ -75,35 +87,53 @@ export class Form833Component implements OnInit {
     this.formToEdit = form;
     this.editMode = true;
     //Set form value
-    this.myForm = form.description;
+    this.fname = form.fname;
   }//edit
 
   saveForm() {
-     if (this.myForm !== null) {
+     if (this.date,this.desc,this.emails,this.fname,this.grade,this.lname,this.org,this.osymbol,this.phone,this.support !== null) {
      //Get the input value
      let form = {
-        description: this.myForm
+        desc:     this.desc,
+        date:     this.date,
+        emails:   this.emails,
+        fname:    this.fname,
+        grade:    this.grade,
+        lname:    this.lname,
+        org:      this.org,
+        osymbol:  this.osymbol,
+        phone:    this.phone,
+        support:  this.support,
      };
       if (!this.editMode) {
         console.log(form);
         this.form833Service.addForm833(form);
       } else {
-        //Get the task lname
-        let tasklname = this.formToEdit.lname;
+        //Get the form id
+        let formID = this.formToEdit.id;
         //update the task
-        this.form833Service.updateForm833(form);
+        this.form833Service.updateForm833(formID, form);
       }
       //set edit mode to false and clear form
       this.editMode = false;
-      this.myForm = '';
+      this.desc = '';
+      this.date = '';
+      this.emails = '';
+      this.fname = '';
+      this.grade = '';
+      this.lname = '';
+      this.org = '';
+      this.osymbol = '';
+      this.support = '';
+      this.router.navigateByUrl('/PA_Portal');
      }
   }//saveTask
 
-  deleteTask(task) {
+  deleteTask(form) {
     //Get the task lname
-    let tasklname = task.lname;
+    let formId = form.id;
     //delete the task
-    this.form833Service.deleteForm833(tasklname);
+    this.form833Service.deleteForm833(formId);
   }//deleteTask
 
 }

@@ -26,15 +26,15 @@ export class AppService {
   	this.serviceForms.add(form);
 	} //addForm_833
 
-	updateForm833(update) {
+	updateForm833(id, update) {
    	//Get the Form_833 document
-   	this.serviceDoc = this.db.doc<form833>(`${config.collection_endpoint}`);
+   	this.serviceDoc = this.db.doc<form833>(`${config.collection_endpoint}/${id}`);
    	this.serviceDoc.update(update);
 	} //updateForm_833
 
-	deleteForm833(lname) {
+	deleteForm833(id) {
    		//Get the Form_833 document
-   		this.serviceDoc = this.db.doc<form833>(`${config.collection_endpoint}`);
+   		this.serviceDoc = this.db.doc<form833>(`${config.collection_endpoint}/${id}`);
    		//Delete the document
    		this.serviceDoc.delete();
 	} //deleteTask

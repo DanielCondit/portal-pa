@@ -60,7 +60,8 @@ import { form833 } from './app.model';
     MatInputModule,
     MatRippleModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Form833Component,
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

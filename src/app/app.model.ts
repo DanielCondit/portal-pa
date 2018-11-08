@@ -1,7 +1,8 @@
 export interface form833 {
+    id: string;
     date: string;
     desc: string;
-    email: string;
+    emails: string;
     fname: string;
     grade: string;
     lname: string;
