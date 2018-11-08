@@ -16,14 +16,14 @@ import { EquipFormComponent } from './equip-form/equip-form.component';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyMaterialModule } from './material-module';
 import { PaHomeComponent } from './pa-home/pa-home.component';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore} from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Form833Component,
     EquipFormComponent,
-    PaHomeComponent
+    PaHomeComponent,
+    Form833Component,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +42,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     MatRippleModule,
     FormsModule,
     ReactiveFormsModule,
-    MyMaterialModule
+    MyMaterialModule,
     ],
   exports: [
     //My exports

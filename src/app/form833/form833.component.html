@@ -1,3 +1,10 @@
+<ul>
+  <li *ngFor="let form of form$ | async"
+      [class.completed]="form.completed">
+    {{ form.email }}
+  </li>
+</ul>
+
 <div class="form-container">
 	<div class="form-wrap">
 
