@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { form833 } from '../app.model';
 
 export interface Form833 {
   description: string;
@@ -30,6 +31,18 @@ export class Form833Component implements OnInit {
     this.formCollectionRef = this.afs.collection('Form_833');
     this.form$ = this.formCollectionRef.valueChanges();
   }
+
+  // add833(formDesc: string) {
+  // if (formDesc && formDesc.trim().length) {
+  //   this.formCollectionRef.add({ description: formDesc, completed: false });
+  //   }
+  // }
+
+  addForm(form) {
+    //Add the new task to the collection
+    this.formCollectionRef.add(form);
+  } //addTask
+
 
   ngOnInit() {}
   

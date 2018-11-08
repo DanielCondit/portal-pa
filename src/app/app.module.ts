@@ -18,6 +18,7 @@ import { MyMaterialModule } from './material-module';
 import { PaHomeComponent } from './pa-home/pa-home.component';
 import { AngularFirestore} from '@angular/fire/firestore';
 import { AdminComponent } from './admin/admin.component';
+import { form833 } from './app.model';
 
 @NgModule({
   declarations: [
