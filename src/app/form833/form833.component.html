@@ -1,4 +1,4 @@
-	<form #f=”ngForm” class="form-wrap">
+	<form class="form-wrap">
 
 		<mat-form-field>
 			<input matInput [matDatepicker]="picker" placeholder="Choose a date">
@@ -78,14 +78,18 @@
 			<mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
 		</mat-form-field>
 		<!-- <button mat-raised-button [disabled]=”!f.valid” (click)=”saveTask()”>Submit</button> -->
-		
+
 	</form>
 
 
 <h1>should be some shit displaying below </h1>
-<ul style="margin-left: 20%">
-  <li *ngFor="let form of form$ | async"
-      [class.completed]="form.completed">
+<!-- <ul style="margin-left: 20%">
+  	<li *ngFor="let form of form$ | async"
+      	[class.completed]="form.completed">
     	{{ form.email }}
-  </li>
-</ul>
+  	</li>
+</ul> -->
+<!-- <tr *ngFor=”let form833 of form833 | async; let i = index” [attr.data-index]=”i”>
+   <td>{{i + 1}}</td>
+   <td>{{form833.description}}</td>
+</tr> -->
