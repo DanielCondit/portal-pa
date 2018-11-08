@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
-export interface Form_833 {
+export interface Form833 {
   description: string;
   completed: boolean;
 }
@@ -23,11 +23,11 @@ export class Form833Component implements OnInit {
             '';
   	}
 
-  formCollectionRef: AngularFirestoreCollection<Form_833>;
-  form$: Observable<Form_833[]>;
+  formCollectionRef: AngularFirestoreCollection<Form833>;
+  form$: Observable<Form833[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.formCollectionRef = this.afs.collection('form833');
+    this.formCollectionRef = this.afs.collection('Form_833');
     this.form$ = this.formCollectionRef.valueChanges();
   }
 

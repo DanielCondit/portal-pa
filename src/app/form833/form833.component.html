@@ -1,10 +1,3 @@
-<ul>
-  <li *ngFor="let form of form$ | async"
-      [class.completed]="form.completed">
-    {{ form.email }}
-  </li>
-</ul>
-
 <div class="form-container">
 	<div class="form-wrap">
 
@@ -88,3 +81,11 @@
 		<button mat-raised-button>Submit</button>
 	</div>
 </div>
+
+<h1>should be some shit displaying below </h1>
+<ul style="margin-left: 20%">
+  <li *ngFor="let form of form$ | async"
+      [class.completed]="form.completed">
+    	{{ form.email }}
+  </li>
+</ul>

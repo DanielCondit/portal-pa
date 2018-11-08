@@ -17,6 +17,7 @@ import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angul
 import { MyMaterialModule } from './material-module';
 import { PaHomeComponent } from './pa-home/pa-home.component';
 import { AngularFirestore} from '@angular/fire/firestore';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AngularFirestore} from '@angular/fire/firestore';
     EquipFormComponent,
     PaHomeComponent,
     Form833Component,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
