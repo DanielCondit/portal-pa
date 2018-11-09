@@ -5,7 +5,7 @@
   [opened]="!(isHandset$ | async)">
   <mat-toolbar>Menu</mat-toolbar>
   <mat-nav-list>
-    <a routerLink="/Home" mat-list-item >Home</a>
+    <a routerLink="/" mat-list-item >Home</a>
     <a routerLink="/Form_833" mat-list-item>Service Request</a>
     <!-- <a routerLink="/Equip_Form" mat-list-item>Equipment Request</a> -->
   </mat-nav-list>
@@ -27,6 +27,23 @@
     {{item.name}}
   </li>
 </ul>
+  <router-outlet></router-outlet>
+  <!-- Welcome logo -->
+  <div class="splash_page ui-view">
+    <div class="patch">
+      <img width="45%" src="assets/188th.png">
+    </div>
+    <div class="notice">
+      <h1>NOTICE</h1>
+      <p>
+        This system is not secured. Do not upload information considered FOR OFFICIAL USE ONLY (FOUO) or PERSONALLY IDENTIFIABLE INFORMATION (PII), which must be protected under the Freedom of Information Act (5 U.S.C. 552) and/or the Privacy Act of 1974 (5 U.S.C. 552a). Unauthorized disclosure or misuse of such information may result in disciplinary action, criminal and/or civil penalties.
+      </p>
+    </div>
+  </div>
+  <!-- Welcome logo -->
 </mat-sidenav-content>
 </mat-sidenav-container>
-<router-outlet></router-outlet>
+
+
+
+
