@@ -1,0 +1,115 @@
+<div class="form-container">
+		<form class="form-wrap" #f='ngForm'>
+
+			<mat-form-field>
+				<input [(ngModel)]='date' name='date' matInput [matDatepicker]="picker" placeholder="Choose a date">
+				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+				<mat-datepicker #picker></mat-datepicker>
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<input [(ngModel)]='fname' name='fname'matInput #input maxlength="20" placeholder="First Name">
+				<mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<input [(ngModel)]='lname' name='lname' matInput #input maxlength="20" placeholder="Last Name">
+				<mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<mat-select [(ngModel)]='grade' name='grade' placeholder="Grade">
+					<mat-option value="E-1">E-1</mat-option>
+					<mat-option value="E-2">E-2</mat-option>
+					<mat-option value="E-3">E-3</mat-option>
+					<mat-option value="E-4">E-4</mat-option>
+					<mat-option value="E-5">E-5</mat-option>
+					<mat-option value="E-6">E-6</mat-option>
+					<mat-option value="E-7">E-7</mat-option>
+					<mat-option value="E-8">E-8</mat-option>
+					<mat-option value="W-1">W-1</mat-option>
+					<mat-option value="w-2">w-2</mat-option>
+					<mat-option value="W-3">W-3</mat-option>
+					<mat-option value="W-4">W-4</mat-option>
+					<mat-option value="W-5">W-5</mat-option>
+					<mat-option value="O-1">O-1</mat-option>
+					<mat-option value="O-2">O-2</mat-option>
+					<mat-option value="O-3">O-3</mat-option>
+					<mat-option value="O-4">O-4</mat-option>
+					<mat-option value="O-5">O-5</mat-option>
+					<mat-option value="O-6">O-6</mat-option>
+					<mat-option value="O-7">O-7</mat-option>
+					<mat-option value="O-8">O-8</mat-option>
+					<mat-option value="O-9">O-9</mat-option>
+					<mat-option value="O-10">O-10</mat-option>
+				</mat-select>
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<input [(ngModel)]='phone' name='phone'matInput placeholder="Phone Number">
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<input [(ngModel)]='emails' name='emails' matInput placeholder="E-mail" [formControl]="email" required>
+				<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<input [(ngModel)]='org' name='org' matInput #input maxlength="20" placeholder="Organization">
+				<mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<input [(ngModel)]='osymbol' name='osymbol' matInput #input maxlength="20" placeholder="Office Symbol">
+				<mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<mat-select [(ngModel)]='support' name='support' placeholder="Type of Support">
+					<mat-option value="option">Photo Support</mat-option>
+					<mat-option value="Photo Support">Graphics</mat-option>
+					<mat-option value="Video">Video</mat-option>
+					<mat-option value="Studio Photo">Studio Photo</mat-option>
+					<mat-option value="Other">Other</mat-option>    
+				</mat-select>
+			</mat-form-field>
+
+			<br>
+			<mat-form-field>
+				<textarea [(ngModel)]='desc' name='desc' matInput #input maxlength="200" placeholder="Description of Support"></textarea>
+				<mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+			</mat-form-field>
+			<button ngclass='btn btn-primary' [disabled]='!f.valid' (click)='saveForm()' mat-raised-button>Submit</button>
+
+		</form>
+</div>
+
+<footer class="footer">
+	<h1>188th Wing PA</h1>
+</footer>
+
+<!-- <div style="margin-left: 20%">
+<h1>should be some shit displaying below </h1>
+<tr *ngFor='let form of serviceForms | async; let i = index' [attr.data-index]='i'>
+   <td>{{i + 1}}</td>
+   <td>{{form.fname}}</td>
+   <td>{{form.lname}}</td>
+   <td>{{form.grade}}</td>
+</tr>
+</div> -->
