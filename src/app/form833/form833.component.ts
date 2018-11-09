@@ -38,10 +38,10 @@ export class Form833Component implements OnInit {
     return this.email.hasError('required') ? 'You must enter a value' :
         this.email.hasError('email') ? 'Not a valid email' :
             '';
-  	}
+   }
 
   constructor(
-    private db: AngularFirestore, 
+    private db: AngularFirestore,
     private form833Service: AppService,
     private router: Router
   ) {}

@@ -1,4 +1,4 @@
-//native imports
+// native imports
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,11 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//my imports
+// my imports
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatListModule} from '@angular/material';
+import { MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    MatListModule
+} from '@angular/material';
 import { Form833Component } from './form833/form833.component';
 import { EquipFormComponent } from './equip-form/equip-form.component';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +41,7 @@ import { form833 } from './app.model';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    //my imports
+    // my imports
     AngularFireModule.initializeApp(environment.firebase),
     LayoutModule,
     MatToolbarModule,
@@ -49,7 +57,7 @@ import { form833 } from './app.model';
     MyMaterialModule,
     ],
   exports: [
-    //My exports
+    // My exports
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -67,4 +75,4 @@ import { form833 } from './app.model';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class MaterialModule{}
+export class MaterialModule { }
