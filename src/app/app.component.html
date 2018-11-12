@@ -3,11 +3,16 @@
   [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
   [mode]="(isHandset$ | async) ? 'over' : 'side'"
   [opened]="!(isHandset$ | async)">
-  <mat-toolbar>Menu</mat-toolbar>
+  <mat-toolbar>
+    <a routerLink="/Admin" mat-list-item>
+      <img src="./assets/admin.png">
+    </a>
+    Menu
+  </mat-toolbar>
   <mat-nav-list>
-    <a routerLink="/" mat-list-item >Home</a>
+    <a style="font-weight: bold" routerLink="/" mat-list-item >Home</a>
     <a routerLink="/Form_833" mat-list-item>Service Request</a>
-    <!-- <a routerLink="/Equip_Form" mat-list-item>Equipment Request</a> -->
+    <a routerLink="/Equip_Form" mat-list-item>Equipment Request</a>
   </mat-nav-list>
 </mat-sidenav>
 <mat-sidenav-content>
