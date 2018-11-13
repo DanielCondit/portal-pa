@@ -1,6 +1,6 @@
 //native imports 
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 //my imports
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,7 @@ import { Form833Component }      from './form833/form833.component';
 import { EquipFormComponent }      from './equip-form/equip-form.component';
 import { AdminComponent }      from './admin/admin.component';
 
-const routes: Routes = [
+export const routes: Routes = [
 	//my routes
   // { path: '', redirectTo: '/PA_Portal', pathMatch: 'full' },
   { path: 'PA_Portal', component: PaHomeComponent },

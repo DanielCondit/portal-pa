@@ -6,11 +6,12 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'portal-pa';
@@ -21,5 +22,14 @@ export class AppComponent {
     );
 
   items: Observable<any[]>;
-  constructor(private breakpointObserver: BreakpointObserver, db: AngularFirestore) {this.items = db.collection('items').valueChanges();};
+  // private router: Router;
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router,
+    db: AngularFirestore
+    ) 
+    {this.items = db.collection('items').valueChanges();this.router = router;};
+
 }
+

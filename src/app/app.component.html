@@ -4,15 +4,15 @@
   [mode]="(isHandset$ | async) ? 'over' : 'side'"
   [opened]="!(isHandset$ | async)">
   <mat-toolbar>
-    <a routerLink="/Admin" mat-list-item>
+    <a *ngIf="router.url!='/Admin'" routerLink="/Admin" mat-list-item title="Admnin Login">
       <img src="./assets/admin.png">
     </a>
     Menu
   </mat-toolbar>
   <mat-nav-list>
-    <a style="font-weight: bold" routerLink="/" mat-list-item >Home</a>
-    <a routerLink="/Form_833" mat-list-item>Service Request</a>
-    <a routerLink="/Equip_Form" mat-list-item>Equipment Request</a>
+    <a *ngIf="router.url!='/'" style="font-weight: bold" routerLink="/" mat-list-item >Home</a>
+    <a *ngIf="router.url!='/Form_833'" routerLink="/Form_833" mat-list-item>Service Request</a>
+    <a *ngIf="router.url!='/Equip_Form'" routerLink="/Equip_Form" mat-list-item>Equipment Request</a>
   </mat-nav-list>
 </mat-sidenav>
 <mat-sidenav-content>
@@ -34,7 +34,7 @@
 </ul>
   <router-outlet></router-outlet>
   <!-- Welcome logo -->
-  <div class="splash_page ui-view">
+  <div *ngIf="router.url=='/'" class="splash_page ui-view">
     <div class="patch">
       <img width="45%" src="assets/188th.png">
     </div>
