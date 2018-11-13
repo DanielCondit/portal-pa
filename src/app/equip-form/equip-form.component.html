@@ -83,20 +83,20 @@
 			<br>
 
 			<mat-form-field>
-				<mat-select [(ngModel)]='support' name='support' placeholder="Type of Support">
-					<mat-option value="option">Photo Support</mat-option>
-					<mat-option value="Photo Support">Graphics</mat-option>
-					<mat-option value="Video">Video</mat-option>
-					<mat-option value="Studio Photo">Studio Photo</mat-option>
-					<mat-option value="Other">Other</mat-option>    
+				<mat-select [(ngModel)]='equip' name='equipment' placeholder="Equipment">
+					<mat-option value="Nikon D300">Nikon D300</mat-option>
+					<mat-option value="Nikon D810">Nikon D810</mat-option>
+					<mat-option value="IPAD">IPAD</mat-option>
 				</mat-select>
 			</mat-form-field>
 
 			<br>
+
 			<mat-form-field>
-				<textarea [(ngModel)]='desc' name='desc' matInput #input maxlength="200" placeholder="Description of Support"></textarea>
+				<textarea [(ngModel)]='desc' name='desc' matInput #input maxlength="200" placeholder="Description of Use"></textarea>
 				<mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
 			</mat-form-field>
+			
 			<button ngclass='btn btn-primary' [disabled]='!f.valid' (click)='saveForm()' mat-raised-button>Submit</button>
 
 		</form>

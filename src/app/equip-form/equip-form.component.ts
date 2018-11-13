@@ -2,14 +2,14 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { Observable, } from 'rxjs';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { form833 } from '../app.model';
+import { equipForm } from '../app.model';
 import { AppService } from '../app.service';
 import { config } from '../app.config';
 import { map } from 'rxjs/operators';
 import { AppModule } from '../app.module';
 import {Router} from '@angular/router';
 
-export interface Form833 {
+export interface EquipForm {
   date: string;
   desc: string;
   emails: string;
@@ -19,7 +19,7 @@ export interface Form833 {
   org: string;
   osymbol: string;
   phone: number;
-  support: string;
+  equip: string;
   completed: boolean;
 }
 
@@ -42,22 +42,22 @@ export class EquipFormComponent implements OnInit {
 
   constructor(
     private db: AngularFirestore,
-    private form833Service: AppService,
+    private equipFormService: AppService,
     private router: Router
   ) {}
 
-  serviceForms: Observable<any[]>;
+  equipmentForms: Observable<any[]>;
 
   ngOnInit() {
-    this.serviceForms = this.db.collection(config.collection_endpoint).valueChanges();
-    this.serviceForms = this.db
+    this.equipmentForms = this.db.collection(config.collection_endpoint).valueChanges();
+    this.equipmentForms = this.db
     .collection(config.collection_endpoint)
     .snapshotChanges()
     .pipe(
       map(actions => {
        return actions.map(a => {
         //Get document data
-        const data = a.payload.doc.data() as form833;
+        const data = a.payload.doc.data() as equipForm;
         //Get document id
         const id = a.payload.doc.id;
         //Use spread operator to add the lname to the document data
@@ -77,7 +77,7 @@ export class EquipFormComponent implements OnInit {
   org: string;
   osymbol: string;
   phone: number;
-  support: string;
+  equip: string;
   editMode: boolean = false;
   formToEdit: any = {};
 
@@ -91,28 +91,28 @@ export class EquipFormComponent implements OnInit {
   }//edit
 
   saveForm() {
-     if (this.date,this.desc,this.emails,this.fname,this.grade,this.lname,this.org,this.osymbol,this.phone,this.support !== null) {
+     if (this.date,this.desc,this.emails,this.fname,this.grade,this.lname,this.org,this.osymbol,this.phone,this.equip !== null) {
      //Get the input value
      let form = {
-        desc:     this.desc,
-        date:     this.date,
-        emails:   this.emails,
-        fname:    this.fname,
-        grade:    this.grade,
-        lname:    this.lname,
-        org:      this.org,
-        osymbol:  this.osymbol,
-        phone:    this.phone,
-        support:  this.support,
+        desc: this.desc,
+        date: this.date,
+        emails: this.emails,
+        fname: this.fname,
+        grade: this.grade,
+        lname: this.lname,
+        org: this.org,
+        osymbol: this.osymbol,
+        phone: this.phone,
+        equip: this.equip,
      };
       if (!this.editMode) {
         console.log(form);
-        this.form833Service.addForm833(form);
+        this.equipFormService.addEquipForm(form);
       } else {
         //Get the form id
         let formID = this.formToEdit.id;
         //update the task
-        this.form833Service.updateForm833(formID, form);
+        this.equipFormService.updateEquipForm(formID, form);
       }
       //set edit mode to false and clear form
       this.editMode = false;
@@ -124,7 +124,7 @@ export class EquipFormComponent implements OnInit {
       this.lname = '';
       this.org = '';
       this.osymbol = '';
-      this.support = '';
+      this.equip = '';
       this.router.navigateByUrl('/PA_Portal');
      }
   }//saveTask
@@ -133,7 +133,7 @@ export class EquipFormComponent implements OnInit {
     //Get the task lname
     let formId = form.id;
     //delete the task
-    this.form833Service.deleteForm833(formId);
+    this.equipFormService.deleteEquipForm(formId);
   }//deleteTask
 
 }
