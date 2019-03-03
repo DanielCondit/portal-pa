@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 // my imports
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
@@ -71,7 +73,7 @@ import { AdminComponent } from './admin/admin.component';
     ReactiveFormsModule,
     Form833Component,
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
