@@ -12,7 +12,7 @@ import { AdminComponent }      from './admin/admin.component';
 export const routes: Routes = [
 	//my routes
   // { path: '', redirectTo: '/PA_Portal', pathMatch: 'full' },
-  { path: 'PA_Portal', component: PaHomeComponent },
+  // { path: 'PA_Portal', component: PaHomeComponent },
 	{ path: 'Form_833', component: Form833Component },
 	{ path: 'Equip_Form', component: EquipFormComponent },
   { path: 'Admin', component: AdminComponent },
