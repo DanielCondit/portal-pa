@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { config } from './app.config';
+import { formConfig, equipConfig } from './app.config';
 import { form833, equipForm } from './app.model';
 import {
   AngularFirestoreDocument,
@@ -19,8 +19,8 @@ export class AppService {
  private equipmentDoc: AngularFirestoreDocument<equipForm>;
  constructor(private db: AngularFirestore) {
  // Get the Form_833 collection
-   this.serviceForms = db.collection<form833>(config.collection_endpoint);
-   this.equipmentForms = db.collection<equipForm>(config.collection_endpoint);
+   this.serviceForms = db.collection<form833>(formConfig.collection_endpoint);
+   this.equipmentForms = db.collection<equipForm>(equipConfig.collection_endpoint);
   }
 
  addForm833(form) {
@@ -30,13 +30,13 @@ export class AppService {
 
  updateForm833(id, update) {
    // Get the Form_833 document
-   this.serviceDoc = this.db.doc<form833>(`${config.collection_endpoint}/${id}`);
+   this.serviceDoc = this.db.doc<form833>(`${formConfig.collection_endpoint}/${id}`);
    this.serviceDoc.update(update);
  } // updateForm_833
 
  deleteForm833(id) {
    // Get the Form_833 document
-   this.serviceDoc = this.db.doc<form833>(`${config.collection_endpoint}/${id}`);
+   this.serviceDoc = this.db.doc<form833>(`${formConfig.collection_endpoint}/${id}`);
    // Delete the document
    this.serviceDoc.delete();
  } // deleteTask
@@ -48,13 +48,13 @@ export class AppService {
 
  updateEquipForm(id, update) {
    // Get the Form_833 document
-   this.equipmentDoc = this.db.doc<equipForm>(`${config.collection_endpoint}/${id}`);
+   this.equipmentDoc = this.db.doc<equipForm>(`${equipConfig.collection_endpoint}/${id}`);
    this.equipmentDoc.update(update);
  } // updateForm_833
 
  deleteEquipForm(id) {
    // Get the Form_833 document
-   this.equipmentDoc = this.db.doc<equipForm>(`${config.collection_endpoint}/${id}`);
+   this.equipmentDoc = this.db.doc<equipForm>(`${equipConfig.collection_endpoint}/${id}`);
    // Delete the document
    this.equipmentDoc.delete();
  } // deleteTask

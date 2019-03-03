@@ -4,7 +4,7 @@ import { Observable, } from 'rxjs';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { form833 } from '../app.model';
 import { AppService } from '../app.service';
-import { config } from '../app.config';
+import { formConfig } from '../app.config';
 import { map } from 'rxjs/operators';
 import { AppModule } from '../app.module';
 import {Router} from '@angular/router';
@@ -49,9 +49,9 @@ export class Form833Component implements OnInit {
   serviceForms: Observable<any[]>;
 
   ngOnInit() {
-    this.serviceForms = this.db.collection(config.collection_endpoint).valueChanges();
+    this.serviceForms = this.db.collection(formConfig.collection_endpoint).valueChanges();
     this.serviceForms = this.db
-    .collection(config.collection_endpoint)
+    .collection(formConfig.collection_endpoint)
     .snapshotChanges()
     .pipe(
       map(actions => {

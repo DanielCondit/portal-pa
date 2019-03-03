@@ -4,7 +4,7 @@
 		<form class="form-wrap" #f='ngForm'>
 
 			<mat-form-field>
-				<input [(ngModel)]='date' name='date' matInput [matDatepicker]="picker" placeholder="Choose a date">
+				<input [(ngModel)]='date' name='date' matInput [matDatepicker]="picker" placeholder="Choose a date" required>
 				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 				<mat-datepicker #picker></mat-datepicker>
 			</mat-form-field>
@@ -12,21 +12,21 @@
 			<br>
 
 			<mat-form-field>
-				<input [(ngModel)]='fname' name='fname'matInput #input maxlength="20" placeholder="First Name">
+				<input [(ngModel)]='fname' name='fname'matInput #input maxlength="20" placeholder="First Name" required>
 				<mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
 			</mat-form-field>
 
 			<br>
 
 			<mat-form-field>
-				<input [(ngModel)]='lname' name='lname' matInput #input maxlength="20" placeholder="Last Name">
+				<input [(ngModel)]='lname' name='lname' matInput #input maxlength="20" placeholder="Last Name" required>
 				<mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
 			</mat-form-field>
 
 			<br>
 
 			<mat-form-field>
-				<mat-select [(ngModel)]='grade' name='grade' placeholder="Grade">
+				<mat-select [(ngModel)]='grade' name='grade' placeholder="Grade" required>
 					<mat-option value="E-1">E-1</mat-option>
 					<mat-option value="E-2">E-2</mat-option>
 					<mat-option value="E-3">E-3</mat-option>
@@ -50,6 +50,7 @@
 					<mat-option value="O-8">O-8</mat-option>
 					<mat-option value="O-9">O-9</mat-option>
 					<mat-option value="O-10">O-10</mat-option>
+					<mat-option value="Civilian">Civilian</mat-option>
 				</mat-select>
 			</mat-form-field>
 
@@ -69,7 +70,7 @@
 			<br>
 
 			<mat-form-field>
-				<input [(ngModel)]='org' name='org' matInput #input maxlength="20" placeholder="Organization">
+				<input [(ngModel)]='org' name='org' matInput #input maxlength="20" placeholder="Organization" required>
 				<mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
 			</mat-form-field>
 
@@ -83,7 +84,7 @@
 			<br>
 
 			<mat-form-field>
-				<mat-select [(ngModel)]='equip' name='equipment' placeholder="Equipment">
+				<mat-select [(ngModel)]='equip' name='equipment' placeholder="Equipment" required>
 					<mat-option value="Nikon D300">Nikon D300</mat-option>
 					<mat-option value="Nikon D810">Nikon D810</mat-option>
 					<mat-option value="IPAD">IPAD</mat-option>
@@ -93,11 +94,11 @@
 			<br>
 
 			<mat-form-field>
-				<textarea [(ngModel)]='desc' name='desc' matInput #input maxlength="200" placeholder="Description of Use"></textarea>
+				<textarea [(ngModel)]='desc' name='desc' matInput #input maxlength="200" placeholder="Description of Use" required></textarea>
 				<mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
 			</mat-form-field>
 			
-			<button ngclass='btn btn-primary' [disabled]='!f.valid' (click)='saveForm()' mat-raised-button>Submit</button>
+			<button type="button" ngclass='btn btn-primary' [disabled]='!f.valid' (click)='saveForm()' mat-raised-button>Submit</button>
 
 		</form>
 </div>

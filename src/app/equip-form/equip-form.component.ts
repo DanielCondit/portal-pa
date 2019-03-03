@@ -4,7 +4,7 @@ import { Observable, } from 'rxjs';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { equipForm } from '../app.model';
 import { AppService } from '../app.service';
-import { config } from '../app.config';
+import { equipConfig } from '../app.config';
 import { map } from 'rxjs/operators';
 import { AppModule } from '../app.module';
 import {Router} from '@angular/router';
@@ -49,9 +49,9 @@ export class EquipFormComponent implements OnInit {
   equipmentForms: Observable<any[]>;
 
   ngOnInit() {
-    this.equipmentForms = this.db.collection(config.collection_endpoint).valueChanges();
+    this.equipmentForms = this.db.collection(equipConfig.collection_endpoint).valueChanges();
     this.equipmentForms = this.db
-    .collection(config.collection_endpoint)
+    .collection(equipConfig.collection_endpoint)
     .snapshotChanges()
     .pipe(
       map(actions => {
