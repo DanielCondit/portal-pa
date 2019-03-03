@@ -25,8 +25,8 @@ export class AppComponent {
   // private router: Router;
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
-    private router: Router,
+    public breakpointObserver: BreakpointObserver,
+    public router: Router,
     db: AngularFirestore
     ) 
     {this.items = db.collection('items').valueChanges();this.router = router;};
