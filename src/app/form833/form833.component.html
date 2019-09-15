@@ -35,6 +35,7 @@
 					<mat-option value="E-6">E-6</mat-option>
 					<mat-option value="E-7">E-7</mat-option>
 					<mat-option value="E-8">E-8</mat-option>
+					<mat-option value="E-9">E-9</mat-option>
 					<mat-option value="W-1">W-1</mat-option>
 					<mat-option value="w-2">w-2</mat-option>
 					<mat-option value="W-3">W-3</mat-option>
@@ -57,7 +58,7 @@
 			<br>
 
 			<mat-form-field>
-				<input [(ngModel)]='phone' name='phone'matInput placeholder="Phone Number">
+				<input [(ngModel)]='phone' name='phone'matInput placeholder="Phone Number" required>
 			</mat-form-field>
 
 			<br>
@@ -65,6 +66,72 @@
 			<mat-form-field>
 				<input [(ngModel)]='emails' name='emails' matInput placeholder="E-mail" [formControl]="email" required>
 				<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+			</mat-form-field>
+
+			<br>
+
+			<mat-form-field>
+				<mat-select [(ngModel)]='state' name='state' placeholder="State/Territory" required>
+					<mat-option value="AL">AL</mat-option>
+					<mat-option value="AK">AK</mat-option>
+					<mat-option value="AZ">AZ</mat-option>
+					<mat-option value="AR">AR</mat-option>
+					<mat-option value="CA">CA</mat-option>
+					<mat-option value="CO">CO</mat-option>
+					<mat-option value="CT">CT</mat-option>
+					<mat-option value="DE">DE</mat-option>
+					<mat-option value="FL">FL</mat-option>
+					<mat-option value="GA">GA</mat-option>
+					<mat-option value="HI">HI</mat-option>
+					<mat-option value="ID">ID</mat-option>
+					<mat-option value="IL">IL</mat-option>
+					<mat-option value="IN">IN</mat-option>
+					<mat-option value="IA">IA</mat-option>
+					<mat-option value="KS">KS</mat-option>
+					<mat-option value="KY">KY</mat-option>
+					<mat-option value="LA">LA</mat-option>
+					<mat-option value="ME">ME</mat-option>
+					<mat-option value="MD">MD</mat-option>
+					<mat-option value="MA">MA</mat-option>
+					<mat-option value="MI">MI</mat-option>
+					<mat-option value="MN">MN</mat-option>
+					<mat-option value="MS">MS</mat-option>
+					<mat-option value="MO">MO</mat-option>
+					<mat-option value="MT">MT</mat-option>
+					<mat-option value="NE">NE</mat-option>
+					<mat-option value="NV">NV</mat-option>
+					<mat-option value="NH">NH</mat-option>
+					<mat-option value="NJ">NJ</mat-option>
+					<mat-option value="NM">NM</mat-option>
+					<mat-option value="NY">NY</mat-option>
+					<mat-option value="NC">NC</mat-option>
+					<mat-option value="ND">ND</mat-option>
+					<mat-option value="OH">OH</mat-option>
+					<mat-option value="OK">OK</mat-option>
+					<mat-option value="OR">OR</mat-option>
+					<mat-option value="PA">PA</mat-option>
+					<mat-option value="RI">RI</mat-option>
+					<mat-option value="SC">SC</mat-option>
+					<mat-option value="SD">SD</mat-option>
+					<mat-option value="TN">TN</mat-option>
+					<mat-option value="TX">TX</mat-option>
+					<mat-option value="UT">UT</mat-option>
+					<mat-option value="VT">VT</mat-option>
+					<mat-option value="VA">VA</mat-option>
+					<mat-option value="WA">WA</mat-option>
+					<mat-option value="WV">WV</mat-option>
+					<mat-option value="WI">WI</mat-option>
+					<mat-option value="WY">WY</mat-option>
+					<mat-option value="AS">AS</mat-option>
+					<mat-option value="DC">DC</mat-option>
+					<mat-option value="FM">FM</mat-option>
+					<mat-option value="GU">GU</mat-option>
+					<mat-option value="MH">MH</mat-option>
+					<mat-option value="MP">MP</mat-option>
+					<mat-option value="PW">PW</mat-option>
+					<mat-option value="PR">PR</mat-option>
+					<mat-option value="VI">VI</mat-option>
+				</mat-select>
 			</mat-form-field>
 
 			<br>

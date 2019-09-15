@@ -1,11 +1,11 @@
 export const environment = {
-  production: true,
-  firebase: {
-    apiKey: "AIzaSyBTuSEihzq63X1gagewoeTrEIaMzQV2MyE",
-    authDomain: "pa-portal-188.firebaseapp.com",
-    databaseURL: "https://pa-portal-188.firebaseio.com",
-    projectId: "pa-portal-188",
-    storageBucket: "pa-portal-188.appspot.com",
+  production: false,
+  firebase:{
+  	apiKey: "AIzaSyApjdNsx_V4AQgWeRxiZTnhUoC_v0dwHNA",
+    authDomain: "pa-portal.firebaseapp.com",
+    databaseURL: "https://pa-portal.firebaseio.com",
+    projectId: "pa-portal-d171a",
+    storageBucket: "pa-portal.appspot.com",
     messagingSenderId: "877270573995"
   }
 };
